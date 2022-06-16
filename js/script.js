@@ -10,20 +10,37 @@ alert(rndNumbersArray);
 setTimeout(function() {
 
     const userNumbersArray = [];
+    const rightNumbers = [];
+    let userNumber;
 
     for(let i = 0; i < 5; i++) {
        
         // l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
-        let userNumber = parseInt(prompt('dimmi uno alla volta i numeri visti in precedenza'));
-        // console.log('userNumber', userNumber)   
+        userNumber = parseInt(prompt('dimmi uno alla volta i numeri visti in precedenza'));
+        console.log('userNumber', userNumber)   
 
         // lo aggiungo all'array vuoto dei numeri dati dall'utente
-        userNumbersArray.push(userNumber)
-        // console.log('userNumbersArray', userNumbersArray)   
+        userNumbersArray.push(userNumber);
+        console.log('userNumbersArray', userNumbersArray)   
         
-    }    
+        // se il numero dato dall'utente è presente tra quelli generati random allora lo aggiungo all'array dei numeri indovinati
+        if(rndNumbersArray.includes(userNumber)) {
+            rightNumbers.push(userNumber);
+            console.log('rightNumbers', rightNumbers)
 
-}, 30000)
+        }
+    }
+
+    // il software dice quanti e quali dei numeri da indovinare sono stati individuati.
+    if(rightNumbers.length === 0) {
+        alert(`Hai indovinato ${rightNumbers.length} numeri. Dai riprovaci! Migliorerai!`);
+    } else if (rightNumbers.length === 1) {
+        alert(`potevi fare di meglio... hai indovinato ${rightNumbers.length} numero. Dai riprovaci! Andrà meglio!`);
+    } else {
+        alert(`hai indovinato i seguenti ${rightNumbers.length} numeri: ${rightNumbers}.`)
+    }
+    
+}, 1000)
 
 
 /************

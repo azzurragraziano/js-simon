@@ -39,8 +39,8 @@ setTimeout(function() {
     } else {
         alert(`hai indovinato i seguenti ${rightNumbers.length} numeri: ${rightNumbers}.`)
     }
-    
-}, 1000)
+
+}, 30000)
 
 
 /************
